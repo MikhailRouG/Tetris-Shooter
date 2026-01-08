@@ -25,9 +25,10 @@ public class Block : MonoBehaviour
     private Vector3 _position;
     private bool _moving;
 
-
+    private Animation _animation;
     private void Start()
     {
+        _animation = GetComponent<Animation>();
         UpdateNumberText();
     }
     private void FixedUpdate()
@@ -68,7 +69,11 @@ public class Block : MonoBehaviour
     public int2 GetIndex() {  return _index; }
     public void SetIndex(int2 index) { _index = index; }
     public int GetNumber() { return _number; }
-    public void SetNumber(int number) {  _number = number; UpdateNumberText(); }
+    public void SetNumber(int number) {
+        _number = number;
+        UpdateNumberText(); 
+        if(_animation != null) _animation.Play();
+    }
     public Vector3 GetPosition() { return _position; }
 
 }

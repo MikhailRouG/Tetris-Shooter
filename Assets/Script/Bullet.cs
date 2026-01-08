@@ -13,7 +13,12 @@ public class Bullet : MonoBehaviour
     [SerializeField] GameObject _hitEffectPrefab;
     [SerializeField] GameObject _destroyEffectPrefab;
     private AudioSource _audioSource;
+<<<<<<< Updated upstream
     [SerializeField] AudioClip _hitEffect;
+=======
+    [SerializeField] private AudioClip _hitEffect;
+    [SerializeField] private LayerMask _unCollisionLayer;
+>>>>>>> Stashed changes
     int _damage;
     private static int _count = 0;
     private static int _maxCount = 100;
@@ -39,7 +44,71 @@ public class Bullet : MonoBehaviour
     }
     private void FixedUpdate()
     {
+<<<<<<< Updated upstream
         _rb.linearVelocity = _velocity.normalized * _speed;
+=======
+        transform.position += (Vector3)_velocity * _speed * Time.fixedDeltaTime;
+
+        Vector3 vel = _velocity;
+        vel.y = 0.0f;
+        vel = vel.normalized;
+
+        if (Physics.BoxCast(
+            transform.position,
+            new Vector3(0.2f, 0.2f, 0.2f),
+            vel,
+            out RaycastHit hit,
+            Quaternion.identity,
+            _size,_unCollisionLayer))
+        {
+            Transform hitTrans = hit.collider.transform;
+
+            Vector3 direction = transform.position - hitTrans.position;
+            direction.y = 0.0f;
+            direction = direction.normalized;
+
+            Vector3 axis;
+            axis = hitTrans.right;
+            axis.y = 0.0f;
+            axis = axis.normalized;
+            float outHorizontal = Vector3.Dot(direction, axis);
+            axis = hitTrans.forward;
+            axis.y = 0.0f;
+            axis = axis.normalized;
+            float outVertical = Vector3.Dot(direction, axis);
+
+
+            SpawnEffect();
+            _audioSource.PlayOneShot(_hitEffect);
+
+            if (Mathf.Abs(outHorizontal) < Mathf.Abs(outVertical))
+            {
+                _velocity.z = Mathf.Sign(direction.z) * Mathf.Abs(_velocity.z);
+            }
+            else
+            {
+                _velocity.x = Mathf.Sign(direction.x) * Mathf.Abs(_velocity.x);
+            }
+
+            // ダメージ
+            // NOMOVEにはダメージを与えない
+            Block b = hit.collider.gameObject.GetComponent<Block>();
+            if (b != null && b.GetBlockType() != BLOCK_TYPE.NOMOVE)
+            {
+                int health = b.GetNumber() - _damage;
+                b.SetNumber(health);
+                b.UpdateNumberText();
+
+                if (health <= 0)
+                {
+                    Stage.instance.DeleteBlock(b.GetIndex());
+                }
+            }
+        }
+
+
+        if (transform.position.z < 0) Destroy(gameObject);
+>>>>>>> Stashed changes
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -79,10 +148,14 @@ public class Bullet : MonoBehaviour
         _damage = daamge;
     }
 
+<<<<<<< Updated upstream
     public void SetDamage(int damage)
     {
         _damage = damage;
     }
+=======
+#if UNITY_EDITOR
+>>>>>>> Stashed changes
     private void OnDrawGizmos()
     {
         Vector3 vel = _velocity;
@@ -115,3 +188,4 @@ public class Bullet : MonoBehaviour
         isDoubled = b;
     }
 }
+#endif

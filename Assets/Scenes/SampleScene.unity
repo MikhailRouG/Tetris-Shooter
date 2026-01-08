@@ -1749,7 +1749,7 @@ GameObject:
   - component: {fileID: 1511497598}
   - component: {fileID: 1511497597}
   - component: {fileID: 1511497601}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: UpgradWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}

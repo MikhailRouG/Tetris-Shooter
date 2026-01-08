@@ -14,7 +14,12 @@ GameObject:
   - component: {fileID: -7498399526157813226}
   - component: {fileID: 2830715642295125613}
   - component: {fileID: 6958694795924016497}
+<<<<<<< Updated upstream
   - component: {fileID: -6186863490082897947}
+=======
+  - component: {fileID: 2087805007595746885}
+  - component: {fileID: 3416151159448652342}
+>>>>>>> Stashed changes
   m_Layer: 11
   m_Name: Bullet
   m_TagString: Untagged
@@ -140,6 +145,9 @@ MonoBehaviour:
   _hitEffectPrefab: {fileID: 2708598583397607911, guid: 6398d43fe79ea0140913dc5530c646af, type: 3}
   _destroyEffectPrefab: {fileID: 1429954232896169633, guid: 83036083a4ebcd34f98131bd3cf6f4d2, type: 3}
   _hitEffect: {fileID: 8300000, guid: 453eeec3ecef97340a131ee4dfbcb3bb, type: 3}
+  _unCollisionLayer:
+    serializedVersion: 2
+    m_Bits: 30775
 --- !u!82 &6958694795924016497
 AudioSource:
   m_ObjectHideFlags: 0
@@ -237,8 +245,13 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+<<<<<<< Updated upstream
 --- !u!135 &-6186863490082897947
 SphereCollider:
+=======
+--- !u!136 &2087805007595746885
+CapsuleCollider:
+>>>>>>> Stashed changes
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -255,6 +268,41 @@ SphereCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
+<<<<<<< Updated upstream
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+=======
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &3416151159448652342
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6569439159572230561}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+>>>>>>> Stashed changes
