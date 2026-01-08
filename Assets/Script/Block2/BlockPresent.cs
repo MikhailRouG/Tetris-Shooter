@@ -10,6 +10,9 @@ public class BlockPresent : BlockMove
 =======
         ScoreManager.instance.AddScore(1);
         Instantiate(_anim, transform.position, Quaternion.identity);
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     }
 }

@@ -14,7 +14,12 @@ public class Bullet : MonoBehaviour
     [SerializeField] GameObject _destroyEffectPrefab;
     private AudioSource _audioSource;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     [SerializeField] AudioClip _hitEffect;
+=======
+    [SerializeField] private AudioClip _hitEffect;
+    [SerializeField] private LayerMask _unCollisionLayer;
+>>>>>>> Stashed changes
 =======
     [SerializeField] private AudioClip _hitEffect;
     [SerializeField] private LayerMask _unCollisionLayer;
@@ -45,8 +50,11 @@ public class Bullet : MonoBehaviour
     private void FixedUpdate()
     {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         _rb.linearVelocity = _velocity.normalized * _speed;
 =======
+=======
+>>>>>>> Stashed changes
         transform.position += (Vector3)_velocity * _speed * Time.fixedDeltaTime;
 
         Vector3 vel = _velocity;
@@ -149,10 +157,14 @@ public class Bullet : MonoBehaviour
     }
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     public void SetDamage(int damage)
     {
         _damage = damage;
     }
+=======
+#if UNITY_EDITOR
+>>>>>>> Stashed changes
 =======
 #if UNITY_EDITOR
 >>>>>>> Stashed changes
