@@ -29,9 +29,6 @@ Manage your ammo, choose your shots wisely, and survive as long as possible whil
 ## Screenshots
 <img width="1852" height="1042" alt="Video Project 10" src="https://github.com/user-attachments/assets/c02b963b-4438-4816-8b62-150f7b4a77c8" />
 
-| Title Screen | Gameplay | Game Over |
-|:---:|:---:|:---:|
-| *(coming soon)* | *(coming soon)* | *(coming soon)* |
 
 ## Controls
 
